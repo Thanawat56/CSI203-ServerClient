@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Workshop #3: Demo Client-Server connecting Example.</title>
- <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Transfer App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <div class="container">
- <h2 style="text-align: right;">Host: Demo-Client</h2>
- <h2>( Client-Server Communication )</h2>
- <textarea id="message" placeholder="Type your message here..."></textarea>
- <button id="sendBtn">Send to Server</button>
- <div id="response"></div></div>
- <script src="script.js"></script>
+    <div id="login-container">
+        <h2>เข้าสู่ระบบ</h2>
+        <input type="text" id="username" placeholder="admin">
+        <input type="password" id="password" placeholder="1234">
+        <button onclick="login()">เข้าสู่ระบบ</button>
+        <p id="login-message"></p>
+    </div>
+
+    <div id="app-container" style="display: none;">
+        <h2 style="background-color: green; color: white">ระบบรับ-ส่งไฟล์</h2>
+
+        <!-- อัปโหลดไฟล์ -->
+        <input type="file" id="file-input" onchange="previewFile()">
+        <button onclick="uploadFile()">อัปโหลด</button>
+        <p id="upload-status"></p>
+        <div id="preview-container"></div>
+
+
+        <!-- แสดงรายการไฟล์ -->
+        <h3>รายการไฟล์</h3>
+        <ul id="file-list"></ul>
+    </div>
+    <button type="button" onclick="logout()">ออกจากระบบ</button>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
